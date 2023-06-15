@@ -1,5 +1,5 @@
 ---
-title: "Robosub 2022"
+title: "Robosub 2023"
 description: "This is meta description."
 draft: false
 ---

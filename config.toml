@@ -53,17 +53,17 @@ hasChildren = true
 [[menu.main]]
 parent = "Projects"
 name = "RoboSub 2022"
-URL = "newest"
+URL = "summer22"
 
 [[menu.main]]
 parent = "Projects"
 name = "Summer of 2021"
 URL = "summer21"
 
-#[[menu.main]]
-#parent = "Projects"
-#name = "RoboSub 2022"
-#URL = "robosub22"
+[[menu.main]]
+parent = "Projects"
+name = "RoboSub 2023"
+URL = "summer23"
 
 [[menu.main]]
 parent = "Projects"

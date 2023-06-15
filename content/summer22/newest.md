@@ -18,7 +18,7 @@ Basics of our Software/Firmware
 Programming Autonomous Operation
 The remote operation of the drone was done through python code that was uploaded to the drone and run after the drone was placed into the water. The code implemented the Pymavlink library in order to send commands to the drone. We were able to code commands to control the movement of the drone and the next step was to make it more automated using computer vision. 
 
-{{<youtube gBmQtaFgFRw>}}
+{{<youtube kb72oOUs9mc>}}
 
 Over the summer we used openCV for image processing and to implement color, line and object detection and to calculate the distance to an object in the pool. One big accomplishment from this effort was the development of an emergency break function using openCV. Below you can see the result of this. 
 
