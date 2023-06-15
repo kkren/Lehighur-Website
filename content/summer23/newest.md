@@ -2,7 +2,7 @@
 
 The electrical team is responsible for ensuring the proper functioning of the drone's hardware and implementing necessary modifications to fulfill the software team's operational requirements for the drone. 
 
-![img](/static/images/blog/post-7.jpg)
+![img](/images/blog/post-7.jpg)
 At the beginning of the season, the electrical team started by using the previous teams' circuit diagram alongside the ArduSub connection diagram to complete the needed circuitry. Once the connections were established, they collaborated with the mechanical team to mount the thrusters onto the chassis, enabling the testing of drone components. Simultaneously, they initiated pool tests to verify the integrity of the created cylinders, ensuring that hey are completely sealed without any cracks that would allow water to penetrate when submerged. The next steps will be to add sonar capabilities to the drone. 
 The majority of the hardware being used this year is sourced from blue robotics, components such as thrusters, lights, electronic speed controllers (ESC), sensors, and more. In addition to these they are also using a Jetson AGX Orin as a companion computer and a Pixhawk4 for efficient control of the thrusters. 
 
@@ -24,4 +24,4 @@ As a team, we encountered a significant challenge during the implementation proc
 This year's team decided to design and create a removable sled within the acrylic cylinder enclosure allowing for convenient removal and maintenance of the electronic components. In the previous year, the acrylic enclosure was attached to the frame using screws, which caused stress and resulted in the acrylic cracking. To address this, the team opted for securing the acrylic enclosure using friction-fit clamps in this year's design. In addition, the team has removed all the external filament-printed components to be replaced with resin-printed objects to address the issue of hollow plastic parts filling with water. 
 The mantra of our mechanical team has always been 'facilitation.' Our mission is to establish an optimal testing environment and provide tools for our electrical and software teams to work effectively toward our ultimate goal of a functioning AUV. After all, there's no meaningful training data until the mechanical team has something tangible to put in the water.
 
-![img](/static/images/blog/post-8.jpg)
+![img](/images/blog/post-8.jpg)
