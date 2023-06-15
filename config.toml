@@ -3,7 +3,7 @@ baseURL = "https://www.lehighur.org"
 languageCode = "en-us"
 summaryLength = "10"
 theme = "kross"
-title = "Lehigh UR"
+title = "Lehigh Underwater Robotics"
 
 # css plugins
 [[params.plugins.css]]
@@ -52,6 +52,11 @@ hasChildren = true
 
 [[menu.main]]
 parent = "Projects"
+name = "RoboSub 2023"
+URL = "summer23"
+
+[[menu.main]]
+parent = "Projects"
 name = "RoboSub 2022"
 URL = "summer22"
 
@@ -60,10 +65,6 @@ parent = "Projects"
 name = "Summer of 2021"
 URL = "summer21"
 
-[[menu.main]]
-parent = "Projects"
-name = "RoboSub 2023"
-URL = "summer23"
 
 [[menu.main]]
 parent = "Projects"
@@ -115,7 +116,7 @@ phone = "N/A"
 email = "inuwrobo@lehigh.edu"
 address = "27 Memorial Dr W, Bethlehem, PA 18015"
 # meta description
-description = "Hi! We are Lehigh UR"
+description = "Hi! We are Lehigh Underwater Robotics"
 # google analytics
 google_analytics_id = "" # Your ID
 # baidu site verification
