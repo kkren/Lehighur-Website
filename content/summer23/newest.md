@@ -1,34 +1,27 @@
-### Hardware
-The hardware team was responsible for ensuring that the drones hardware was all working correctly and making any modifications that the software team needed for the drone’s operation. They installed new firmware, companion computer software and python packaged onto the Raspberry pi. During our first pool test we discovered that the leak sensor within the drone works as there were multiple cable penetrators that weren’t sealed and the team had to patch them up. They also added a new scanning sonar to the drone that can be seen in the image below. 
+## Electrical
 
-![1.png](https://i.loli.net/2021/10/22/JGZlacoxAVmTX9O.png)
+The electrical team is responsible for ensuring the proper functioning of the drone's hardware and implementing necessary modifications to fulfill the software team's operational requirements for the drone. 
 
-The black scanning sonar can be seen in the image of the drone above. 
+![img](/static/images/blog/post-7.jpg)
+At the beginning of the season, the electrical team started by using the previous teams' circuit diagram alongside the ArduSub connection diagram to complete the needed circuitry. Once the connections were established, they collaborated with the mechanical team to mount the thrusters onto the chassis, enabling the testing of drone components. Simultaneously, they initiated pool tests to verify the integrity of the created cylinders, ensuring that hey are completely sealed without any cracks that would allow water to penetrate when submerged. The next steps will be to add sonar capabilities to the drone. 
+The majority of the hardware being used this year is sourced from blue robotics, components such as thrusters, lights, electronic speed controllers (ESC), sensors, and more. In addition to these they are also using a Jetson AGX Orin as a companion computer and a Pixhawk4 for efficient control of the thrusters. 
 
-The hardware team also started to experiment more with how they could upgrade the hardware on the drone. This included looking at an upgrade for the Raspberry pi and the SD card. For the SD card they tested a SSD card as a replacement and while it was sinceicialy faster, it was unable to boot on the first power-up. They also looked into replacing the Raspberry pi with the Jetson nano and this is not a change that is going to be implemented in the Fall of 2021 as the software team needs more processing power. 
+This year's team decided to add 4 six pin connections to facilitate connections to the thrusters, while keeping a lot of the previous year's components and connections the same. 
 
-![Picture3.png](https://i.loli.net/2021/10/22/7dZR8mFMuB4SP5L.png)
+## Software 
 
-This is a screenshot of the image received from the sonar during a test in Lehigh’s swimming pool. 
+This year, the team is continuing to use Mavlink to communicate with Pixhawk 4 and control the drone’s movement. The [Ardusub](https://www.ardusub.com/) version of Ardupilot is a microcontroller that will automatically stabilize the drone and translate movement commands to thruster output. The library to work with Ardusub is [Pymavlink](https://github.com/ArduPilot/pymavlink). It is the Python library that provides an interface to communicate with Mavlink.
+The team's primary objective for the summer is to build a drone with software capabilities that surpass last year's model. The first change that we are going to bring is to integrate Simultaneous localization and mapping (SLAM) technology. The team had experimented with the ORB-SLAM3 algorithm in the past, but the result was not very optimistic. This year we are planning to use a SLAM algorithm that can integrate data sources from the stereo camera, IMU, and sonar, and we believe it can significantly improve its accuracy. 
+The team still wants to increase the accuracy of the object detection model. After exploring recent upgrades on YOLO models, we decided to use [YOLO v8](https://github.com/ultralytics/ultralytics) as this year’s object detection model. YOLO v8 brings multiple improvements over the YOLO v3 we were using and simplifies the training process. 
+One obstacle we are experiencing this year is the relatively challenging onboarding process for new team members, primarily due to the absence of complete documentation. The team is always relying on senior team members to train new members with their knowledge, and since the first generation of team members graduated this year, we found it difficult to revisit some of the team’s codebase. To improve the experience of future team members, we focus on using [Gitbook](https://docs.lehighur.org/) to record proper documentation for our scripts, code, and design.
+The team is continuing to use Ubuntu 20 with ROS2 Foxy on the drone’s computer. The computer’s architecture is upgraded from Jetson Xavier NX to [Jetson AGX Orin](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/). The latter one is 13 times faster than the Xavier NX. The huge performance improvements allow us to explore better machine-learning models and run multiple models together. And even with these more complex algorithms, the computer is still more responsive than the computer from last year.
+
+## Mechanical 
 
 
-### Software
-Basics of our Software/Firmware
+The mechanical team started the summer off by designing and assembling the chassis for the 2023 drone, which is primarily made out of 8020 aluminum struts. Their primary objective for this season was to achieve this milestone, as the slots incorporated into the drone's structure provide flexibility for designing peripherals such as grippers and torpedo launchers. Transitioning from last year's marine-grade plastic to 8020 aluminum guarantees the avoidance of structural failure. This ensures the endurance of our chassis, enabling its use in the future while saving valuable time and resources that can be allocated to enhancing our internal electronics designs and peripherals.
+As a team, we encountered a significant challenge during the implementation process: the potential threat of corrosion and rust. Our concern came from the fact that typical hardware components like nuts and bolts are manufactured from steel, raising the possibility of galvanic corrosion when in contact with aluminum. Galvanic corrosion is a chemical reaction that can significantly weaken metals when they come into contact with each other. Through experimentation with our hardware and struts, we discovered that by having a large amount of aluminum with small intervals of steel, we could effectively minimize the occurrence of corrosion. This outcome is due to the distinct chemical properties displayed by these metals.
+This year's team decided to design and create a removable sled within the acrylic cylinder enclosure allowing for convenient removal and maintenance of the electronic components. In the previous year, the acrylic enclosure was attached to the frame using screws, which caused stress and resulted in the acrylic cracking. To address this, the team opted for securing the acrylic enclosure using friction-fit clamps in this year's design. In addition, the team has removed all the external filament-printed components to be replaced with resin-printed objects to address the issue of hollow plastic parts filling with water. 
+The mantra of our mechanical team has always been 'facilitation.' Our mission is to establish an optimal testing environment and provide tools for our electrical and software teams to work effectively toward our ultimate goal of a functioning AUV. After all, there's no meaningful training data until the mechanical team has something tangible to put in the water.
 
-Programming Autonomous Operation
-The remote operation of the drone was done through python code that was uploaded to the drone and run after the drone was placed into the water. The code implemented the Pymavlink library in order to send commands to the drone. We were able to code commands to control the movement of the drone and the next step was to make it more automated using computer vision. 
-
-{{<youtube kb72oOUs9mc>}}
-
-Over the summer we used openCV for image processing and to implement color, line and object detection and to calculate the distance to an object in the pool. One big accomplishment from this effort was the development of an emergency break function using openCV. Below you can see the result of this. 
-
-{{<youtube 7FZVZ45mYx0>}}
-
-We also experimented with the different flight modes offered by ardusub and were controlled by QGroundControl. We chose to use the __ mode when operating it manually with a remote and __ mode when controlled by our code. We found that the __ mode made the drone start spinning, you can see this in the video below. 
-
-### Simulation
-An important part of the development of the code was to have a simulator to test it on before we implement it on our drone. The complete simulator was composed of three components. We used SITL to simulate the hardware without the hardware components present or plugged into your computer. BlueSim simulator was able to generate a virtual BlueROV2 heavyweight version within a virtual 3d environment. It uses the GODOT game engine to create a separate video feed where there is video from the drone's perspective and from a 3rd person perspective and the drone could be controlled by the buttons on our computer, a game controller or code. The GUI QGroundControl that was used during the operation of the drone was also implemented in the simulator. The combination of these three simulators working in tandem allowed for a full simulation experience and for us to test our code. 
-
-![Picture2.png](https://i.loli.net/2021/10/22/aq2sfBc5Zz8XHu3.png)
-
-Image shows the integration of the three environments to create the full simulation. The right side shows BlueSim with the primary 1st person view while the top right corner showing a 3rd persian view and there is also the scanning sonar in the bottom right corner. The top left corner shows the console generated from SITL. The section on the left corner shows the QGroundControl interface. 
+![img](/static/images/blog/post-8.jpg)
