@@ -9,7 +9,7 @@ This site is based on [Hugo](https://gohugo.io/)
   - Install on Windows: [link](https://gohugo.io/getting-started/installing/#windows)
 - [Git bash](https://git-scm.com/) (Recommended on Windows)
 
-- `git clone --recurse-submodules https://github.com/Lehigh-Underwater-Robotics/Lehighur-Website.git`
+- `git clone --recurse-submodules https://github.com/lehighur/Lehighur-Website.git`
 
 ## Get Started
 
